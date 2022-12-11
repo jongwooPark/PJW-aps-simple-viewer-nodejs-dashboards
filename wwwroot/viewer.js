@@ -1,9 +1,9 @@
 /// import * as Autodesk from "@types/forge-viewer";
 
-//import './extensions/LoggerExtension.js';
+import './extensions/LoggerExtension.js';
 import './extensions/SummaryExtension.js';
-//import './extensions/DataGridExtension.js';
-//import './extensions/HistogramExtension.js';
+import './extensions/DataGridExtension.js';
+import './extensions/HistogramExtension.js';
 
 async function getAccessToken(callback) {
     try {
@@ -22,6 +22,7 @@ async function getAccessToken(callback) {
 export function initViewer(container) {
     return new Promise(function (resolve, reject) {
         Autodesk.Viewing.Initializer({ getAccessToken }, function () {
+            //상단에 import하여 등록된 등록확장관리
             const config = {
                 extensions: [
                     'Autodesk.DocumentBrowser',

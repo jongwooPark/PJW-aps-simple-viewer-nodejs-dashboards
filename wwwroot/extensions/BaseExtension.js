@@ -12,6 +12,7 @@ export class BaseExtension extends Autodesk.Viewing.Extension {
         this.viewer.addEventListener(Autodesk.Viewing.OBJECT_TREE_CREATED_EVENT, this._onObjectTreeCreated);
         this.viewer.addEventListener(Autodesk.Viewing.SELECTION_CHANGED_EVENT, this._onSelectionChanged);
         this.viewer.addEventListener(Autodesk.Viewing.ISOLATE_EVENT, this._onIsolationChanged);
+        console.log('(5) load by class BaseExtension ');
         return true;
     }
 
