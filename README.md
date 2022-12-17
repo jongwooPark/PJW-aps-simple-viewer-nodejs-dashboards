@@ -42,3 +42,10 @@ Please contact us via https://forge.autodesk.com/en/support/get-help.
 
 This sample is licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 Please see the [LICENSE](LICENSE) file for more details.
+
+## License
+http://localhost:8080/forge_test01/
+![screenshot](test01.jpg)
+
+http://localhost:8080/forge_test02/
+![screenshot](test02.png)
