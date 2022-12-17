@@ -4,9 +4,9 @@ const DATAGRID_CONFIG = {
     requiredProps: ['name', 'Volume', 'Level'], // Which properties should be requested for each object
     columns: [ // Definition of individual grid columns (see http://tabulator.info for more details)
         { title: 'ID', field: 'dbid' },
-        { title: 'Name', field: 'name', width: 150 },
-        { title: 'Volume', field: 'volume', hozAlign: 'left', formatter: 'progress' },
-        { title: 'Level', field: 'level' }
+        { title: '이름', field: 'name', width: 150 },
+        { title: '볼륨', field: 'volume', hozAlign: 'left', formatter: 'progress' },
+        { title: '레벨', field: 'level' }
     ],
     groupBy: 'level', // Optional column to group by
     createRow: (dbid, name, props) => { // Function generating grid rows based on recieved object properties
@@ -27,7 +27,7 @@ export class DataGridPanel extends Autodesk.Viewing.UI.DockingPanel {
         this.container.style.left = (options.x || 0) + 'px';
         this.container.style.top = (options.y || 0) + 'px';
         this.container.style.width = (options.width || 500) + 'px';
-        this.container.style.height = (options.height || 400) + 'px';
+        this.container.style.height = (options.height || 450) + 'px';
         this.container.style.resize = 'none';
     }
 
@@ -36,7 +36,7 @@ export class DataGridPanel extends Autodesk.Viewing.UI.DockingPanel {
         this.initializeMoveHandlers(this.title);
         this.container.appendChild(this.title);
         this.content = document.createElement('div');
-        this.content.style.height = '350px';
+        this.content.style.height = '400px';
         this.content.style.backgroundColor = 'white';
         this.content.innerHTML = `<div class="datagrid-container" style="position: relative; height: 350px;"></div>`;
         this.container.appendChild(this.content);
@@ -51,6 +51,8 @@ export class DataGridPanel extends Autodesk.Viewing.UI.DockingPanel {
     }
 
     update(model, dbids) {
+        
+        //객체정보 불러오기
         model.getBulkProperties(dbids, { propFilter: DATAGRID_CONFIG.requiredProps }, (results) => {
             this.table.replaceData(results.map((result) => DATAGRID_CONFIG.createRow(result.dbId, result.name, result.properties)));
         }, (err) => {
