@@ -45,7 +45,7 @@ Please see the [LICENSE](LICENSE) file for more details.
 
 ## License
 http://localhost:8080/forge_test01/
-![screenshot](test01.jpg)
+![screenshot](test01.JPG)
 
 http://localhost:8080/forge_test02/
-![screenshot](test02.png)
+![screenshot](test02.PNG)
